@@ -1,0 +1,15 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // prettier
+    "editor.formatOnSave": true,
+    "editor.detectIndentation": true,
+    // "eslint.format.enable": true,
+    "eslint.lintTask.enable": true,
+    "eslint.codeActionsOnSave.rules": null,
+    // "editor.codeActionsOnSave": {
+    //     "source.fixAll.eslint": "explicit"
+    // },
+    "eslint.validate": ["javascript", "typescript"],
+    "eslint.run": "onSave",
+    "eslint.debug": true,
+    "eslint.trace.server": "verbose"
+}
