@@ -1,7 +1,6 @@
 {
     "editor.defaultFormatter": "esbenp.prettier-vscode", // prettier
     "editor.formatOnSave": true,
-    "editor.detectIndentation": true,
     // "eslint.format.enable": true,
     "eslint.lintTask.enable": true,
     "eslint.codeActionsOnSave.rules": null,
@@ -11,5 +10,8 @@
     "eslint.validate": ["javascript", "typescript"],
     "eslint.run": "onSave",
     "eslint.debug": true,
-    "eslint.trace.server": "verbose"
+    "eslint.trace.server": "verbose",
+    "editor.detectIndentation": false, // Disable automatic detection to enforce the settings
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false // Use tabs instead of spaces
 }
