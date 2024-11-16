@@ -1,9 +1,10 @@
 import { ConfigService } from '@nestjs/config'
+import * as constants from 'src/config/constants'
 import { DataSource } from 'typeorm'
 
 export const databaseProviders = [
 	{
-		provide: 'DATA_SOURCE_PG',
+		provide: constants.dataSource.POSTGRES,
 		useFactory: async (configService: ConfigService) => {
 			console.log(configService.get<string>('DB_TYPE'))
 			const dataSource = new DataSource({
@@ -14,7 +15,7 @@ export const databaseProviders = [
 				password: configService.get<string>('DB_PASSWORD'),
 				database: configService.get<string>('DB_DATABASE'),
 				entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-				synchronize: true, // Set to false in production
+				synchronize: false, // Set to false in production
 			})
 
 			return await dataSource.initialize()

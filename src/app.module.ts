@@ -9,6 +9,7 @@ import { UserModule } from './features/users/user.module'
 	imports: [
 		ConfigModule.forRoot({
 			isGlobal: true,
+			envFilePath: '.env',
 		}),
 		DatabaseModule,
 		UserModule,

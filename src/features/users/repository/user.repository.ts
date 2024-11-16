@@ -1,10 +1,11 @@
 import { DataSource, Repository } from 'typeorm'
 import { UserEntity } from '../model/user.entity'
 import { Inject, Injectable } from '@nestjs/common'
+import * as constants from 'src/config/constants'
 
 @Injectable()
 export class UserRepository extends Repository<UserEntity> {
-	constructor(@Inject('DATA_SOURCE_PG') dataSource: DataSource) {
+	constructor(@Inject(constants.dataSource.POSTGRES) dataSource: DataSource) {
 		super(UserEntity, dataSource.createEntityManager())
 	}
 
