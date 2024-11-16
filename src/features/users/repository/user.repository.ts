@@ -4,10 +4,7 @@ import { Inject, Injectable } from '@nestjs/common'
 
 @Injectable()
 export class UserRepository extends Repository<UserEntity> {
-	// constructor(@Inject('DATA_SOURCE') dataSource: DataSource) {
-	// 	super(UserEntity, dataSource.createEntityManager())
-	// }
-	constructor(dataSource: DataSource) {
+	constructor(@Inject('DATA_SOURCE_PG') dataSource: DataSource) {
 		super(UserEntity, dataSource.createEntityManager())
 	}
 

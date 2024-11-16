@@ -3,7 +3,7 @@ import { DataSource } from 'typeorm'
 
 export const databaseProviders = [
 	{
-		provide: 'DATA_SOURCE',
+		provide: 'DATA_SOURCE_PG',
 		useFactory: async (configService: ConfigService) => {
 			console.log(configService.get<string>('DB_TYPE'))
 			const dataSource = new DataSource({
@@ -17,7 +17,7 @@ export const databaseProviders = [
 				synchronize: true, // Set to false in production
 			})
 
-			return dataSource.initialize()
+			return await dataSource.initialize()
 		},
 		inject: [ConfigService],
 	},
