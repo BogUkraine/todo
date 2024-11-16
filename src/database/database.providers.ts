@@ -5,6 +5,7 @@ export const databaseProviders = [
 	{
 		provide: 'DATA_SOURCE',
 		useFactory: async (configService: ConfigService) => {
+			console.log(configService.get<string>('DB_TYPE'))
 			const dataSource = new DataSource({
 				type: configService.get<string>('DB_TYPE') as 'postgres',
 				host: configService.get<string>('DB_HOST'),
@@ -18,5 +19,6 @@ export const databaseProviders = [
 
 			return dataSource.initialize()
 		},
+		inject: [ConfigService],
 	},
 ]
